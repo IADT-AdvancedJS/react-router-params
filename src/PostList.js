@@ -30,6 +30,7 @@ class PostList extends Component {
     });
     return (
       <section className="section">
+        <h1 className="title">Posts from user #{this.props.match.params.userId}</h1>
         <div className="columns is-multiline">{postComponents}</div>
       </section>
     );
