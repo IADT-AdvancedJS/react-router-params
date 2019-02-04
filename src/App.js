@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import PostList from "./PostList";
+import UserList from "./UserList";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div id="navbarBasicExample" className="navbar-brand">
+          <Link className="navbar-item" to="/">View All Users</Link>
+          <Link className="navbar-item" to="/about">About</Link>
+        </div>
+      </nav>
+
+      <Route exact path="/" component={UserList} />
+      <Route path="/about" component={About} />
+      <Route path="/posts/:userId" component={PostList} />
+    </div>
+  </BrowserRouter>
+);
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+);
 
 export default App;
